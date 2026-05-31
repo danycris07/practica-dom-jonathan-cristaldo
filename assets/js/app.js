@@ -16,6 +16,7 @@ const personajes = [
 const contenedorCards = document.getElementById('contenedor-cards');
 const inputBuscar = document.getElementById('input-buscar');
 const btnBuscar = document.getElementById('btn-buscar');
+const formularioHeroe = document.getElementById('formulario-heroe');
 
 /**
  FUNCIÓN RENDERIZAR CARDS
@@ -73,4 +74,54 @@ btnBuscar.addEventListener('click', () => {
 // EVENTO INICIAL: Se ejecuta cuando todo el DOM está cargado para mostrar los 5 personajes por primera vez
 document.addEventListener('DOMContentLoaded', () => {
     renderizarCards(personajes);
+
+});
+
+/**
+  FORMULARIO PARA AGREGAR PERSONAJE
+  Escucha el submit, crea un objeto y lo introduce de forma segura en la constante original.
+ */
+formularioHeroe.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita el recargado de la pagina
+
+    const nombreInput = document.getElementById('input-nombre').value.trim();
+    const imagenInput = document.getElementById('input-imagen').value.trim();
+
+    // Creamos el nuevo objeto con un ID único basado en milisegundos
+    const nuevoHeroe = {
+        id: Date.now(),
+        nombre: nombreInput,
+        imagen: imagenInput
+    };
+
+    // Al ser un arreglo constante, usamos .push() para modificar su contenido sin reasignar la variable
+    personajes.push(nuevoHeroe);
+
+    // Actualizamos la interfaz renderizando el arreglo completo actualizado
+    renderizarCards(personajes);
+
+    // Limpiamos los inputs del formulario
+    formularioHeroe.reset();
+});
+
+/**
+  ELIMINAR PERSONAJE
+  Aplicamos Delegación de Eventos escuchando los clicks en el contenedor de las cards.
+ */
+contenedorCards.addEventListener('click', (e) => {
+    // Comprobamos si el usuario hizo click específicamente en un botón de eliminar
+    if (e.target.classList.contains('btn-eliminar')) {
+        const idEliminar = parseInt(e.target.getAttribute('data-id'));
+
+        // Buscamos la posición (índice) exacto del personaje dentro de la constante original
+        const indice = personajes.findIndex(p => p.id === idEliminar);
+
+        // Si el índice existe, removemos el elemento usando .splice() sin reasignar la constante
+        if (indice !== -1) {
+            personajes.splice(indice, 1);
+        }
+
+        // Volvemos a dibujar las cards vigentes
+        renderizarCards(personajes);
+    }
 });
