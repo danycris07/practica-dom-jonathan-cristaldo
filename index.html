@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,55 +7,66 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-    <header>
 
+<body class="bg-dark text-light">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary shadow">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">Politécnico Formosa - Cartas de Superheroes</a>
+            </div>
+        </nav>
     </header>
 
+    <main class="container my-5">
+        
+        <h1 class="text-center mb-4">Cartas de Superhéroes</h1>
 
-<main class="container my-5">
-    
-    <!-- Card para el Formulario -->
-    <div class="card mb-5 bg-light shadow-sm">
-        <div class="card-body">
-            <h2 class="card-title h4 mb-3">Crea un nuevo Superhéroe</h2>
-            
-            <!-- Formulario con ID para JS -->
-            <form id="formulario-heroe" class="row g-3">
-                
-                
-                <div class="col-md-5">
-                    <label for="input-nombre" class="form-label">Nombre del Superhéroe</label>
-                    <input type="text" class="form-control" id="input-nombre" placeholder="Ej. Spider-Man" required>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card bg-secondary text-light h-100 shadow">
+                    <div class="card-body">
+                        <h3 class="card-title h5 mb-3 text-warning">Nuevo Personaje</h3>
+                        <form id="formulario-heroe">
+                            <div class="mb-3">
+                                <label for="input-nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control bg-dark text-light border-secondary" id="input-nombre" placeholder="Ej. Spider-Man" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="input-imagen" class="form-label">URL de la Imagen</label>
+                                <input type="url" class="form-control bg-dark text-light border-secondary" id="input-imagen" placeholder="https://..." required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 fw-bold">Agregar Héroe</button>
+                        </form>
+                    </div>
                 </div>
-                
-                
-                <div class="col-md-5">
-                    <label for="input-imagen" class="form-label">URL de la Imagen</label>
-                    <input type="url" class="form-control" id="input-imagen" placeholder="https://enlace-de-la-foto.jpg" required>
-                </div>
-                
+            </div>
 
-                <div class="col-md-2 d-flex align-items-end">
-                    <button type="submit" class="btn btn-success w-100">Agregar</button>
+            <div class="col-md-8">
+                <div class="card bg-secondary text-light mb-4 shadow">
+                    <div class="card-body d-flex gap-2">
+                        <input type="text" id="input-buscar" class="form-control bg-dark text-light border-secondary" placeholder="Buscar superhéroe por nombre...">
+                        <button id="btn-buscar" class="btn btn-warning fw-bold px-4">Buscar</button>
+                    </div>
                 </div>
-                
-            </form>
+
+                <div id="contenedor-cards" class="row row-cols-1 row-cols-md-2 g-4">
+                    </div>
+            </div>
         </div>
-    </div>
 
-    <hr>
+    </main>
 
-    <!-- Contenedor dinámico de Cards  -->
-    <div id="contenedor-cards" class="row row-cols-1 row-cols-md-3 g-4 mt-3">
-        <!-- JS hara las cards aquí -->
-    </div>
-
-</main>
-
-    <footer>
-
+    <footer class="bg-secondary text-center py-3 mt-5 border-top border-dark">
+        <p class="mb-0 text-light-50">&copy; 2026 Mi pagina web de Cartas de Superheroes</p>
     </footer>
+
+    
+
+
+
+
+
     <script src="assets/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
