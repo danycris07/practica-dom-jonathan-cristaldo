@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,54 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <header>
+
+    </header>
+
+
+<main class="container my-5">
     
+    <!-- Card para el Formulario -->
+    <div class="card mb-5 bg-light shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title h4 mb-3">Crea un nuevo Superhéroe</h2>
+            
+            <!-- Formulario con ID para JS -->
+            <form id="formulario-heroe" class="row g-3">
+                
+                
+                <div class="col-md-5">
+                    <label for="input-nombre" class="form-label">Nombre del Superhéroe</label>
+                    <input type="text" class="form-control" id="input-nombre" placeholder="Ej. Spider-Man" required>
+                </div>
+                
+                
+                <div class="col-md-5">
+                    <label for="input-imagen" class="form-label">URL de la Imagen</label>
+                    <input type="url" class="form-control" id="input-imagen" placeholder="https://enlace-de-la-foto.jpg" required>
+                </div>
+                
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-success w-100">Agregar</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Contenedor dinámico de Cards  -->
+    <div id="contenedor-cards" class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+        <!-- JS hara las cards aquí -->
+    </div>
+
+</main>
+
+    <footer>
+
+    </footer>
     <script src="assets/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
